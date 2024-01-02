@@ -14,11 +14,11 @@ const cors = require('cors');
 const app=express();
 require('dotenv').config();
 
-const path=require('path')
+
 
 app.use(cors())
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "client","build")));
+
 
 app.use('/api/updateddata',updatedpizza)
 app.use('/api/registeruser', registeruser);
@@ -37,9 +37,7 @@ app.use('/api/deletedata',deletes)
       
 
 
-app.get("*", (req, res)=> {
-res.sendFile(path.join(__dirname, "client","build","index.html"));
-});
+
 
 const port = process.env.PORT || 3000
 
